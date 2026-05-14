@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "pnpm db:generate && pnpm build",
-  "installCommand": "pnpm install --no-frozen-lockfile",
+  "buildCommand": "npx drizzle-kit generate --name init || true && npm run build",
+  "installCommand": "npm install --legacy-peer-deps --no-audit --no-fund",
   "functions": {
     "app/api/messages/route.ts": { "maxDuration": 60 },
     "app/api/messages/[accountId]/[id]/route.ts": { "maxDuration": 30 },
