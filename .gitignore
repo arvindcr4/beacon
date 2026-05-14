@@ -23,4 +23,6 @@ test-results
 
 # IDE
 .vscode
-.idea
+.ideaandroid/beacon-release.keystore
+android/.keystore-pass
+android/.bubblewrap
