@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Beacon — Message + AI draft</title>
+<style>
+  :root{--bg:#0b0d10;--surf:#14171c;--surfE:#1b1f26;--border:#232932;--fg:#e7ecf3;--muted:#8a93a3;--accent:#ffb84d;--accentFg:#1a1208}
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;width:1080px;height:1920px;overflow:hidden}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:60px 36px 24px;border-bottom:1px solid var(--border)}
+  .back{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:24px;font-weight:500}
+  .topbar-actions{display:flex;gap:8px}
+  .icon-btn{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+  .icon-btn.star{color:var(--accent)}
+  .icon-btn.star svg{fill:var(--accent)}
+  main{padding:30px 36px}
+  h1.subject{font-size:38px;font-weight:700;line-height:1.2;margin:0 0 24px}
+  .sender{display:flex;align-items:center;gap:18px;border-bottom:1px solid var(--border);padding-bottom:24px;margin-bottom:24px}
+  .chip{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;color:#000;background:#60a5fa}
+  .sender-name{font-size:24px;font-weight:600}
+  .sender-meta{font-size:18px;color:var(--muted);margin-top:4px}
+  .ai-card{display:flex;gap:16px;border:1px solid rgba(255,184,77,.35);background:color-mix(in oklab,#ffb84d 9%,transparent);padding:24px;border-radius:14px;margin-bottom:24px}
+  .ai-card svg.spark{width:32px;height:32px;color:var(--accent);flex-shrink:0;margin-top:2px}
+  .ai-label{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .ai-text{font-size:24px;color:var(--fg);margin-top:8px;line-height:1.45}
+  .body{font-size:22px;line-height:1.55;color:var(--fg);margin-bottom:28px}
+  .body p{margin:0 0 18px}
+  .body p.muted{color:var(--muted);font-size:21px}
+  .reply{border:1px solid var(--border);background:var(--surf);border-radius:14px;padding:22px}
+  .reply-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .reply-title{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:600}
+  .reply-title svg{width:26px;height:26px}
+  .tones{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+  .tone{border-radius:999px;padding:5px 12px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;background:var(--surfE);color:var(--muted);font-weight:600}
+  .tone.active{background:var(--accent);color:var(--accentFg)}
+  .intent{height:60px;border:1px solid var(--border);background:var(--surfE);border-radius:10px;padding:0 18px;color:var(--muted);font-size:20px;display:flex;align-items:center;margin-bottom:14px}
+  .draft{min-height:380px;border:1px solid var(--border);background:var(--surfE);border-radius:10px;padding:18px 20px;font-size:22px;line-height:1.55;color:var(--fg);white-space:pre-line}
+  .reply-actions{display:flex;gap:14px;margin-top:18px}
+  .btn{height:64px;border-radius:12px;padding:0 22px;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:20px;border:1px solid var(--border)}
+  .btn.primary{background:var(--accent);color:var(--accentFg);border:0}
+  .btn.secondary{background:var(--surfE);color:var(--fg)}
+  .btn.ghost{background:transparent;color:var(--muted)}
+  .btn svg{width:24px;height:24px}
+</style></head>
+<body>
+  <div class="topbar">
+    <div class="back">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      Inbox
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn star"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+      <button class="icon-btn"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="5" rx="2"/><path d="M5 9v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9"/><path d="M10 13h4"/></svg></button>
+      <button class="icon-btn"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+    </div>
+  </div>
+
+  <main>
+    <h1 class="subject">Series A term sheet — please review by EOD</h1>
+    <div class="sender">
+      <div class="chip">O</div>
+      <div>
+        <div class="sender-name">Priya Iyer</div>
+        <div class="sender-meta">priya@gravelridge.vc · 12m</div>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <svg class="spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L13.5 8.5 L20 10 L13.5 11.5 L12 18 L10.5 11.5 L4 10 L10.5 8.5 Z"/></svg>
+      <div>
+        <div class="ai-label">Beacon summary</div>
+        <div class="ai-text">Action: counter-sign the term sheet before 6pm today. Funding closes Friday and the wire needs the signed PDF in the dataroom 24h before.</div>
+      </div>
+    </div>
+
+    <div class="body">
+      <p>Hey,</p>
+      <p>Quick one — we got the green light from the partnership on the round. Term sheet is attached. Two pieces of cleanup since our call:</p>
+      <p class="muted">• Anti-dilution carved out for the founder pool.<br>• Pro-rata rights extended through Series B.</p>
+      <p>Need your counter-signed PDF in the dataroom by EOD. Wire goes Thursday, close Friday.</p>
+    </div>
+
+    <div class="reply">
+      <div class="reply-head">
+        <div class="reply-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg>
+          Quick reply
+        </div>
+        <div class="tones">
+          <span class="tone">neutral</span>
+          <span class="tone active">warm</span>
+          <span class="tone">direct</span>
+          <span class="tone">apologetic</span>
+          <span class="tone">enthusiastic</span>
+        </div>
+      </div>
+      <div class="intent">What should the reply say? (optional)</div>
+      <div class="draft">Thanks Priya — appreciate the cleanup on the founder pool, that resolves the concern from yesterday's call.
+
+I'll counter-sign and drop the PDF in the dataroom by 5pm. Will ping when it's uploaded so legal can pull it for the wire.
+
+Excited to be doing this with you.
+
+Best,</div>
+      <div class="reply-actions">
+        <button class="btn secondary"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L13.5 8.5 L20 10 L13.5 11.5 L12 18 L10.5 11.5 L4 10 L10.5 8.5 Z"/></svg>Draft with AI</button>
+        <button class="btn primary">Send reply</button>
+        <button class="btn ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg>Forward</button>
+      </div>
+    </div>
+  </main>
+</body></html>

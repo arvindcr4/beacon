@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Beacon — Compose</title>
+<style>
+  :root{--bg:#0b0d10;--surf:#14171c;--surfE:#1b1f26;--border:#232932;--fg:#e7ecf3;--muted:#8a93a3;--accent:#ffb84d;--accentFg:#1a1208}
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;width:1080px;height:1920px;overflow:hidden}
+  .header{padding:60px 36px 28px;border-bottom:1px solid var(--border)}
+  h1{margin:0;font-size:36px;font-weight:700}
+  main{padding:30px 36px;display:flex;flex-direction:column;gap:24px}
+  label{font-size:18px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:block}
+  .input,.select,.textarea{width:100%;border:1px solid var(--border);background:var(--surf);border-radius:12px;padding:0 22px;color:var(--fg);font-size:24px}
+  .input,.select{height:88px;display:flex;align-items:center}
+  .input.placeholder{color:var(--muted)}
+  .textarea{padding:22px;line-height:1.55;font-size:24px;min-height:380px;white-space:pre-line}
+  .ai-block{border:1px solid var(--border);background:var(--surf);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px}
+  .ai-head{display:flex;align-items:center;gap:12px;color:var(--accent);font-size:18px;font-weight:600;letter-spacing:.06em}
+  .ai-row{display:flex;gap:14px}
+  .ai-input{flex:1;height:76px;border:1px solid var(--border);background:var(--surfE);border-radius:10px;display:flex;align-items:center;padding:0 22px;font-size:22px}
+  .btn{height:76px;padding:0 28px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;gap:12px;font-weight:600;font-size:22px;border:0}
+  .btn.primary{background:var(--accent);color:var(--accentFg)}
+  .btn.secondary{background:var(--surfE);color:var(--fg)}
+  .actions{display:flex;justify-content:flex-end;margin-top:8px}
+  .actions .btn{padding:0 38px}
+  .body-text{color:var(--fg)}
+  .body-text .ph{color:var(--accent);background:rgba(255,184,77,.18);padding:0 6px;border-radius:4px}
+  nav.bottom{position:absolute;bottom:0;left:0;right:0;backdrop-filter:blur(12px);background:rgba(20,23,28,.82);border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);padding:18px 12px 60px}
+  nav.bottom a{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:18px;font-weight:500;padding:14px}
+  nav.bottom a.active{color:var(--accent)}
+</style></head>
+<body>
+  <div class="header"><h1>New message</h1></div>
+  <main>
+    <div>
+      <label>From</label>
+      <div class="select">Arvind — Gmail (arvindcr4@gmail.com) ⌄</div>
+    </div>
+    <div>
+      <label>To</label>
+      <div class="input">priya@gravelridge.vc</div>
+    </div>
+    <div>
+      <label>Subject</label>
+      <div class="input">Re: Term sheet — counter-sign in dataroom</div>
+    </div>
+
+    <div class="ai-block">
+      <div class="ai-head">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L13.5 8.5 L20 10 L13.5 11.5 L12 18 L10.5 11.5 L4 10 L10.5 8.5 Z"/></svg>
+        Tell Beacon what to say (optional):
+      </div>
+      <div class="ai-row">
+        <div class="ai-input">Confirm I'll counter-sign by 5pm, ask for the wire details</div>
+        <button class="btn secondary">Draft</button>
+      </div>
+    </div>
+
+    <div>
+      <label>Message</label>
+      <div class="textarea body-text">Hey Priya,
+
+Got it — counter-signing the term sheet right now and dropping the PDF in the dataroom by <span class="ph">[5pm PT]</span>. Will ping when it's up.
+
+Quick ask: can you share the wire instructions so legal can line them up before Thursday?
+
+Thanks,</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn primary">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        Send
+      </button>
+    </div>
+  </main>
+
+  <nav class="bottom">
+    <a><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>Inbox</a>
+    <a class="active"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Compose</a>
+    <a><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Settings</a>
+  </nav>
+</body></html>

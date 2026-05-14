@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  html,body{width:1024px;height:500px;overflow:hidden;background:#0b0d10;color:#e7ecf3;font-family:Inter,-apple-system,sans-serif}
+  .frame{display:flex;align-items:center;height:100%;padding:0 56px;gap:48px;position:relative;overflow:hidden}
+  /* radial glow behind the beacon mark */
+  .glow{position:absolute;left:80px;top:50%;transform:translateY(-50%);width:520px;height:520px;background:radial-gradient(circle,rgba(255,184,77,.22) 0%,rgba(255,184,77,0) 60%);pointer-events:none}
+  .left{display:flex;align-items:center;justify-content:center;width:280px;height:280px;flex-shrink:0;position:relative;z-index:1}
+  .left svg{width:280px;height:280px;filter:drop-shadow(0 0 60px rgba(255,184,77,.35))}
+  .right{flex:1;display:flex;flex-direction:column;gap:18px;position:relative;z-index:1}
+  h1{font-size:72px;font-weight:700;line-height:1;letter-spacing:-.02em;background:linear-gradient(135deg,#ffb84d 0%,#ffd28a 50%,#fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .tagline{font-size:32px;font-weight:500;color:#cfd6e2;line-height:1.25;max-width:600px}
+  .features{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap}
+  .chip{background:rgba(255,184,77,.12);border:1px solid rgba(255,184,77,.35);color:#ffb84d;padding:8px 18px;border-radius:999px;font-size:18px;font-weight:600;letter-spacing:.02em}
+</style></head>
+<body>
+<div class="frame">
+  <div class="glow"></div>
+  <div class="left">
+    <svg viewBox="0 0 240 240">
+      <circle cx="120" cy="120" r="42" fill="#ffb84d"/>
+      <g transform="translate(120 120)">
+        <path d="M0 -100 L24 -64 L-24 -64 Z" fill="#ffb84d" opacity=".55"/>
+        <path d="M0 -100 L24 -64 L-24 -64 Z" fill="#ffb84d" opacity=".75" transform="rotate(60)"/>
+        <path d="M0 -100 L24 -64 L-24 -64 Z" fill="#ffb84d" opacity=".5" transform="rotate(120)"/>
+        <path d="M0 -100 L24 -64 L-24 -64 Z" fill="#ffb84d" opacity=".75" transform="rotate(180)"/>
+        <path d="M0 -100 L24 -64 L-24 -64 Z" fill="#ffb84d" opacity=".5" transform="rotate(240)"/>
+        <path d="M0 -100 L24 -64 L-24 -64 Z" fill="#ffb84d" opacity=".75" transform="rotate(300)"/>
+      </g>
+    </svg>
+  </div>
+  <div class="right">
+    <h1>Beacon</h1>
+    <div class="tagline">One inbox for Gmail, Outlook, and IMAP — with an AI that actually triages.</div>
+    <div class="features">
+      <span class="chip">AI priority</span>
+      <span class="chip">Summaries</span>
+      <span class="chip">Draft replies</span>
+      <span class="chip">All accounts</span>
+    </div>
+  </div>
+</div>
+</body></html>
