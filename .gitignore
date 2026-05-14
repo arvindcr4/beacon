@@ -26,3 +26,9 @@ test-results
 .ideaandroid/beacon-release.keystore
 android/.keystore-pass
 android/.bubblewrap
+
+# Gradle intermediates (Android)
+android/app/build/
+android/.gradle/
+android/build/
+android/local.properties
