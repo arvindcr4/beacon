@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "app.vercel.beacon_dun_one",
+      "package_name": "app.vercel.beacon_dun_one.twa",
       "sha256_cert_fingerprints": [
         "4B:EE:94:88:3B:3A:0F:F1:D8:8B:72:C8:BB:D5:FB:EC:97:2A:D3:85:4A:E1:CB:2F:03:25:DD:2B:2D:A5:86:65"
       ]
