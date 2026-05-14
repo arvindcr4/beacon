@@ -1,0 +1,43 @@
+{
+  "packageId": "app.vercel.beacon_dun_one",
+  "host": "beacon-dun-one.vercel.app",
+  "name": "Beacon",
+  "launcherName": "Beacon",
+  "display": "standalone",
+  "themeColor": "#0b0d10",
+  "navigationColor": "#0b0d10",
+  "navigationColorDark": "#0b0d10",
+  "navigationDividerColor": "#0b0d10",
+  "navigationDividerColorDark": "#0b0d10",
+  "backgroundColor": "#0b0d10",
+  "enableNotifications": false,
+  "startUrl": "/inbox",
+  "iconUrl": "https://beacon-dun-one.vercel.app/icon.svg",
+  "maskableIconUrl": "https://beacon-dun-one.vercel.app/icon.svg",
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "signingKey": {
+    "path": "./beacon-release.keystore",
+    "alias": "beacon"
+  },
+  "splashScreenFadeOutDuration": 300,
+  "fingerprints": [
+    {
+      "name": "release",
+      "value": "4B:EE:94:88:3B:3A:0F:F1:D8:8B:72:C8:BB:D5:FB:EC:97:2A:D3:85:4A:E1:CB:2F:03:25:DD:2B:2D:A5:86:65"
+    }
+  ],
+  "fallbackType": "customtabs",
+  "features": {
+    "locationDelegation": { "enabled": false },
+    "playBilling": { "enabled": false }
+  },
+  "alphaDependencies": { "enabled": false },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://beacon-dun-one.vercel.app/",
+  "minSdkVersion": 23,
+  "orientation": "portrait",
+  "additionalTrustedOrigins": []
+}
